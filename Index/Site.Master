@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - Fundacion Index</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -15,7 +15,30 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style type="text/css">
+.carousel{
+    background: #2f4357;
+    margin-top: 20px;
+   
+}
+.carousel .item{
+    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+    max-height:700px;
 
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+.carousel .item p{
+    background: rgba(31, 40, 93, 0.5); /* Align slide image horizontally center */
+}
+.carousel .item h3{
+    background: rgba(31, 40, 93, 0.5); /* Align slide image horizontally center */
+}
+.bs-example{
+	margin: 20px;
+}
+</style>
 </head>
 <body>
     <form runat="server">
@@ -40,7 +63,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,13 +71,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/"><img src="img/Logo.png" class=".img-responsive" height="60" /></a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                         <li><a runat="server" href="~/Login">Login</a></li>
                     </ul>
                 </div>
             </div>
