@@ -16,7 +16,7 @@ namespace Index
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
         {
-            Response.Redirect("Inicio");
+            Response.Redirect("Donaciones/Captura");
         }
     }
 }
