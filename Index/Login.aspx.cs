@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +17,21 @@ namespace Index
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
         {
-            Response.Redirect("Donaciones/Captura");
+
+            string nombre = Login1.UserName;
+            Session["user_name"] = nombre;
+            string[] rol = Roles.GetRolesForUser(nombre);
+            MembershipUser usuario = Membership.GetUser(User.Identity.Name);
+            if (Roles.IsUserInRole(Login1.UserName, "reciclador"))
+            {
+                Session["rol"] = "reciclador";
+            }
+            if (Roles.IsUserInRole(Login1.UserName, "planta"))
+            {
+                Session["rol"] = "planta";
+            }
+            Response.Redirect("Default");
+        
         }
     }
 }

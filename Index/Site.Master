@@ -15,6 +15,64 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <style type="text/css">
+			
+			* {
+				margin:0px;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:500px;
+               
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				
+				
+				text-decoration:none;
+				padding:15px 12px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				
+			}
+			.nav ul{
+                background-color:#ffffff;
+			}
+			.nav li ul {
+				display:none;
+				position:absolute;
+				min-width:500px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:-30px;
+			}
+            .navbar {
+                 height:100px;
+            }
+		</style>
     <style type="text/css">
 .carousel{
     background: #2f4357;
@@ -87,7 +145,24 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                         <li><a runat="server" href="~/Login">Login</a></li>
+                         <li runat="server" id="llogin"><a runat="server" href="~/Login">Login</a></li>
+                       
+                
+                        <li id="recicladores" runat="server"><a href="">Recicladores</a>
+								<ul>
+									  <li><a href="Donaciones/Captura">Captura</a></li>
+                        <li><a href="#">Reportes</a></li>
+								</ul>
+							</li>
+
+                         
+
+
+                            <li id="maquilas" runat="server"><a href="">Maquilas</a>
+								<ul>
+                                       <li><a href="#">Reportes</a></li>
+								</ul>
+							</li>
                     </ul>
                 </div>
             </div>

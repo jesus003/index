@@ -49,22 +49,22 @@
       
   </div>   
      <div class="col-md-6">
-         <asp:Login ID="Login1"  runat="server" OnLoggedIn="Login1_LoggedIn">
+         <asp:Login ID="Login1" runat="server" OnLoggedIn="Login1_LoggedIn">
              <LayoutTemplate>
                  <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
                      <tr>
                          <td>
                              <table cellpadding="0">
                                  <tr>
-                                     <td align="center" colspan="2"><h2>Iniciar sesión</h2></td>
+                                     <td align="center" colspan="2">Iniciar sesión</td>
                                  </tr>
                                  <tr>
                                      <td align="right">
                                          <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nombre de usuario:</asp:Label>
                                      </td>
                                      <td>
-                                         <asp:TextBox ID="UserName" CssClass="form-control" runat="server"></asp:TextBox>
-                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                         <asp:TextBox CssClass="form-control" ID="UserName" runat="server"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="UserNameRequired"  runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                      </td>
                                  </tr>
                                  <tr>
@@ -72,7 +72,7 @@
                                          <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Contraseña:</asp:Label>
                                      </td>
                                      <td>
-                                         <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                         <asp:TextBox ID="Password" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                                          <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                      </td>
                                  </tr>

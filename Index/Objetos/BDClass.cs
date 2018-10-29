@@ -226,6 +226,68 @@ namespace UrbaniaIntranet.Objetos
             return null;
         }
 
+        public DataTable cmbx_Unidades()
+        {
+            if (this.AbreConexion())
+            {
+                try
+                {
+                    DataTable table = new DataTable();
+                    SqlCommand cmd = new SqlCommand("SP_CMBX_UNIDADES", conectar);
+                    SqlDataReader read;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    read = cmd.ExecuteReader();
+                    table.Load(read);
+                    read.Close();
+                    CerrarConexion();
+                    return table;
+                }
+                catch (SqlException ex)
+                {
+                    EventLog.WriteEntry("BDClass", "SP_CMBX_UNIDADES" + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    EventLog.WriteEntry("BDClass", "SP_CMBX_UNIDADES" + ex.Message);
+                }
+            }
+            return null;
+        }
+
+        public Int64 getFolio()
+        {
+            Int64 folio = 0;
+            if (this.AbreConexion())
+            {
+                try
+                {
+                    DataTable table = new DataTable();
+                    SqlCommand cmd = new SqlCommand("SP_GET_FOLIO", conectar);
+                    SqlDataReader read;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    read = cmd.ExecuteReader();
+
+                    while (read.Read()) {
+                        folio = read.GetInt64(0);
+                    }
+                    read.Close();
+                    CerrarConexion();
+                    return folio;
+                }
+                catch (SqlException ex)
+                {
+                    EventLog.WriteEntry("BDClass", "SP_GET_FOLIO" + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    EventLog.WriteEntry("BDClass", "SP_GET_FOLIO" + ex.Message);
+                }
+            }
+            return 0;
+        }
+
         public decimal INS_DONACION(string idPlanta,string idRecicladora,string fecha, string subtotal, string iva, string total,string capturo)
         {
             decimal valid = 0;
@@ -257,6 +319,7 @@ namespace UrbaniaIntranet.Objetos
                 }
                 catch (SqlException ex)
                 {
+                    Debug.WriteLine(ex.Message);
                     EventLog.WriteEntry("BDClass", "SP_CMBX_RECICLADORES" + ex.Message);
                 }
                 catch (Exception ex)
@@ -266,6 +329,36 @@ namespace UrbaniaIntranet.Objetos
             }
             return 0;
         }
+
+        public DataTable getDetalles(string id)
+        {
+            if (this.AbreConexion())
+            {
+                try
+                {
+                    DataTable table = new DataTable();
+                    SqlCommand cmd = new SqlCommand("SP_GET_DETALLESDONACION", conectar);
+                    SqlDataReader read;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    read = cmd.ExecuteReader();
+                    table.Load(read);
+                    read.Close();
+                    CerrarConexion();
+                    return table;
+                }
+                catch (SqlException ex)
+                {
+                    EventLog.WriteEntry("BDClass", "SP_GET_DETALLESDONACION" + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    EventLog.WriteEntry("BDClass", "SP_GET_DETALLESDONACION" + ex.Message);
+                }
+            }
+            return null;
+        }
+
         public decimal INS_DONACIONDETALLE(string folio, string idMaterial, string boleta_pesaje, string pase_salida, string peso_pase, string peso_compra, string precio_unitario,string @unidad_medida,string total)
         {
             decimal valid = 0;
