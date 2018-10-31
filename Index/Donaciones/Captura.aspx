@@ -102,7 +102,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-         $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+      $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+     
+      });
+       $( function() {
+      $("#datepicker2").datepicker({ dateFormat: 'dd/mm/yy' });
+     
   } );
   </script>
     <script>
@@ -221,6 +226,12 @@ function myFunction() {
                      
                      <asp:Button ID="btnDetalle" runat="server" CssClass="btn btn-primary" Text="Guardar Detalle" OnClick="btnDetalle_Click"  />
                 </div>
+                     <div class="col-md-4">
+                     <h4><asp:Label ID="Label16" runat="server" Text="Fecha"></asp:Label></h4>
+                    
+                     
+                     <input type="text" runat="server"  class="form-control" id="datepicker2">
+                </div>
 
                   
               </div>
@@ -278,6 +289,7 @@ function myFunction() {
                     
                 </div>
             </div>
+
 
              
 

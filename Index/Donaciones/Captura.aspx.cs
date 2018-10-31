@@ -113,7 +113,7 @@ namespace Index.Descuento
         {
             ObjDonacionDetalle detalle = new ObjDonacionDetalle();
             detalle.DonacionID = "0";
-            detalle.Fecha = DateTime.Now.ToShortDateString();
+            detalle.Fecha = datepicker2.Value;
             detalle.Material = cmbxMaterial.SelectedValue;
             detalle.BoletaPesaje = txtBoletaPesaje.Value;
             detalle.PaseSalida = txtPaseSalida.Value;
